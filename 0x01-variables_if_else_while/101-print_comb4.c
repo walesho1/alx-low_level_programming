@@ -22,14 +22,16 @@ int main(void)
 					putchar(m);
 					putchar(l);
 					if (n != 55 || m != 56)
-r(',');
-					putchar(' ');
+					{
+						putchar(',');
+						putchar(' ');
+					}
 				}
 			}
 		}
 	}
-}
-putchar('\n');
 
-return (0);
+	putchar('\n');
+
+	return (0);
 }
