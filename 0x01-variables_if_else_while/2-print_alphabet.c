@@ -1,3 +1,4 @@
+#include <time.h>
 #include <stdio.h>
 
 /**
@@ -7,12 +8,13 @@
  */
 int main(void)
 {
+
 	char letter;
 
-	for (letter = 'a'; letter < = 'z'; letter + +)
+	for (letter = 'a'; letter < = 'z', + +)
 		putchar(letter);
 
-	putcha ('\n');
+	putchar('\n');
 
 	return (0);
 }
