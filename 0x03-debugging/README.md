@@ -1,2 +1,1 @@
-0x03. C - Debugging
-
+A README.md file at the root of the repo, containing a description of the reposit
