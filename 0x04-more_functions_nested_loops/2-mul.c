@@ -7,7 +7,7 @@
  * @a: first input
  * @b: second input
  *
- * Return: 0
+ * Return: product of a & b
  */
 
 int mul(int a, int b)
