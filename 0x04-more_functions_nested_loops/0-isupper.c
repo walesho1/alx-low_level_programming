@@ -12,7 +12,7 @@ int _isupper(int c)
 	{
 		return (i);
 	}
-	
+
 
 	return (0);
 }
