@@ -1,26 +1,28 @@
+#include <stdio.h>
 #include "main.h"
 
 /**
- * print_chessboard - prints out the contents of a multidimensional array
- * @a: multidimensional array
+ * print_diagsums - prints the sums of the two diagnonals of a square matrix
+ * @a: Pointer to an multidimensional array
+ * @size: Specified size of the array
  *
  * Return: void
  */
-void print_chessboard(char (*a)[8])
+void print_diagsums(int *a, int size)
 {
-	/*Declaring Variables*/
-	int i, j;
+	/*Variable Declaration*/
+	int i, j, k;
+	long sum1, sum2;
 
-	i = 0;
-	while (i < 8) /*Repetition*/
+	sum1 = 0;
+	sum2 = 0;
+	/*Loops through elements on the diagonal*/
+	for (i = 0, j = 0, k = (size - 1);
+			(i < 20) && (j < size) && (k > -1);
+			i++, j++, k--)
 	{
-		j = 0;
-		while (j < 8)
-		{
-			_putchar(a[i][j]);
-			j++;
-		}
-		_putchar('\n'); /*Print Newline*/
-		i++; /*i + 1*/
+		sum1 += *(a + size * i + j);
+		sum2 += *(a + size * i + k);
 	}
+	printf("%ld, %ld\n", sum1, sum2); /*Outputs sum*/
 }
