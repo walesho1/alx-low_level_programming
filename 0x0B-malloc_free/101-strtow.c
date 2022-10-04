@@ -23,7 +23,7 @@ int wordnos(char *s)
 			w++;
 		}
 	}
-	
+
 	return (w);
 }
 /**
