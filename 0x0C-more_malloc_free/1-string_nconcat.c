@@ -1,43 +1,52 @@
 #include "main.h"
 #include <stdlib.h>
 
+
 /**
- * _calloc - personal implementation of a standard library function
- * @nmemb: number of elements/ blocks of memory to allocate
- * @size: size of each element/ block of memory allocated
+ * string_nconcat - concatenates s1 to n elements of s2
+ * @s1: first string parameter
+ * @s2: second string parameter
+ * @n: Number of bytes of @s2 to concatenate
  *
- * Return: ptr
+ * Return: New string
  */
-void *_calloc(unsigned int nmemb, unsigned int size)
+char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	void *ptr;
-	unsigned int i;
+	unsigned int size1, size2, total_size;
+	unsigned int i, j;
+	char *str;
 
-	if ((nmemb == 0) || (size == 0))
+	size1 = 0, size2 = 0;
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+
+	while (s1[size1] != '\0')
+		size1++;
+
+	while (s2[size2] != '\0')
+		size2++;
+
+	if (n > size2)
+		n = size2;
+
+	total_size = size1 + n + 1;
+	str = malloc(sizeof(char) * total_size);
+	if (str == NULL)
 		return (0);
 
-	ptr = malloc(size * nmemb);
-	if (ptr == NULL)
-		return (0);
-
-	/*sets all members of array to 0 & evaluates type dynamically*/
-	for (i = 0; i < nmemb; i++)
+	i = 0;
+	for (j = 0; j < size1; j++)
 	{
-		switch (size)
-		{
-		case 8:
-			*((long *) ptr + i) = 0;
-			break;
-		case 4:
-			*((int *) ptr + i) = 0;
-			break;
-		case 2:
-			*((short *) ptr + i) = 0;
-			break;
-		case 1:
-			*((char *) ptr + i) = 0;
-			break;
-		}
+		str[i] = s1[j];
+		i++;
 	}
-	return (ptr);
+	for (j = 0; j < n; j++)
+	{
+		str[i] = s2[j];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
