@@ -38,7 +38,7 @@ list_t *add_node_end(list_t **head, const char *str)
 	}
 
 	return (*head);
-}#include "lists.h"
+} #include "lists.h"
 
 /**
  * add_node_end - adds a new node at the end
